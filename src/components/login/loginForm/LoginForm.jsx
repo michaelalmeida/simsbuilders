@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { Input, Button } from 'antd';
 import { setUserAuth } from '../../../store/user';
@@ -12,6 +13,7 @@ import { LoginBoxForm, FormItem } from './LoginForm.style';
 
 function LoginForm() {
     const { USERNAME, PASSWORD } = INPUTNAMES;
+    const intl = useIntl();
 
     const dispatch = useDispatch();
 
@@ -30,7 +32,7 @@ function LoginForm() {
             <FormItem>
                 <Input
                     name={USERNAME}
-                    placeholder="User"
+                    placeholder={intl.formatMessage({ id: 'username' })}
                     value={loginInfo.username}
                     onChange={handleInputChange}
                 />
@@ -38,7 +40,7 @@ function LoginForm() {
             <FormItem>
                 <Input.Password
                     name={PASSWORD}
-                    placeholder="Password"
+                    placeholder={intl.formatMessage({ id: 'password' })}
                     value={loginInfo.password}
                     onChange={handleInputChange}
                 />
@@ -48,9 +50,11 @@ function LoginForm() {
                 <Button name="login" type="primary" onClick={loginSubmitHandler}>
                     <FormattedMessage id="login" />
                 </Button>
-                <Button type="link">
-                    <FormattedMessage id="enrol" />
-                </Button>
+                <Link to="/signup">
+                    <Button type="link">
+                        <FormattedMessage id="enrol" />
+                    </Button>
+                </Link>
             </span>
         </LoginBoxForm>
     );

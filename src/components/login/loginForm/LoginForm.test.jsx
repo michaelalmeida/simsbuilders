@@ -14,7 +14,7 @@ describe('<LoginForm />', () => {
     });
     test('should input user and input password be empty when started', () => {
         storeProviderTests(<LoginForm />);
-        const usernameInput = screen.getByPlaceholderText('User');
+        const usernameInput = screen.getByPlaceholderText('Username');
         const passwordInput = screen.getByPlaceholderText('Password');
 
         expect(usernameInput.value).toBe('');
@@ -22,7 +22,7 @@ describe('<LoginForm />', () => {
     });
     test('should change user value when the user changes it', () => {
         storeProviderTests(<LoginForm />);
-        const usernameInput = screen.getByPlaceholderText('User');
+        const usernameInput = screen.getByPlaceholderText('Username');
 
         fireEvent.input(usernameInput, { target: { value: 'Michael' } });
         expect(usernameInput.value).toBe('Michael');

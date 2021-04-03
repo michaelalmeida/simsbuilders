@@ -3,6 +3,8 @@
     "cancel": "Cancelar",
     "enrol": "Cadastrar",
     "login": "Entrar",
+    "username": "Usuário",
+    "password": "Senha",
 
     "welcome": "Bem vindo",
     "welcome.info": "Por favor, utilize o formulário ao lado para entrar no sistema."

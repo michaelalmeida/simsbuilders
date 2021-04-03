@@ -10,6 +10,7 @@ import { GlobalStyles } from './components/style/global';
 
 import { Login } from './components/login/Login';
 import { Dashboard } from './components/dashboard/Dashboard';
+import { Signup } from './components/signup/Signup';
 
 import 'antd/dist/antd.css';
 
@@ -22,6 +23,7 @@ function App() {
                 <Switch>
                     <IntlProvider locale="pt" messages={messages.pt}>
                         <Route exact path="/login/" component={Login} />
+                        <Route exact path="/signup/" component={Signup} />
                         <Route exact path="/">
                             {isAuth ? <Dashboard /> : <Redirect to="/login/" />}
                         </Route>
