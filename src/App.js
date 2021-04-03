@@ -20,7 +20,7 @@ function App() {
             <GlobalStyles />
             <Router>
                 <Switch>
-                    <IntlProvider locale="en" messages={messages.en}>
+                    <IntlProvider locale="pt" messages={messages.pt}>
                         <Route exact path="/login/" component={Login} />
                         <Route exact path="/">
                             {isAuth ? <Dashboard /> : <Redirect to="/login/" />}

@@ -25,7 +25,7 @@ function Login() {
                             <FormattedMessage id="welcome" />
                         </H1>
                         <Paragraph white>
-                            <FormattedMessage id="welcomeInfo" />
+                            <FormattedMessage id="welcome.info" />
                         </Paragraph>
                     </span>
                 </LoginBoxInfo>

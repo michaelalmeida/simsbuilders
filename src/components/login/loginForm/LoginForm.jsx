@@ -46,10 +46,10 @@ function LoginForm() {
 
             <span>
                 <Button name="login" type="primary" onClick={loginSubmitHandler}>
-                    <FormattedMessage id="loginButton" />
+                    <FormattedMessage id="login" />
                 </Button>
                 <Button type="link">
-                    <FormattedMessage id="loginHelp" />
+                    <FormattedMessage id="enrol" />
                 </Button>
             </span>
         </LoginBoxForm>
