@@ -5,36 +5,36 @@ import { useDispatch } from 'react-redux';
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { Input, Button } from 'antd';
+import { Input, Button, Checkbox } from 'antd';
 import { setUserAuth } from '../../../store/user';
 
-import { INPUTNAMES } from '../login.constants';
-import { LoginBoxForm } from './LoginForm.style';
+import { INPUTNAMES } from '../signup.constants';
+
 import { FormItem } from '../../style/forms';
 
-function LoginForm() {
-    const { USERNAME, PASSWORD } = INPUTNAMES;
+function SignupForm() {
+    const { USERNAME, PASSWORD, EMAIL } = INPUTNAMES;
     const intl = useIntl();
 
     const dispatch = useDispatch();
 
-    const [loginInfo, setLoginInfo] = useState({ [USERNAME]: '', [PASSWORD]: '' });
+    const [signupInfo, setSignupInfo] = useState({ [USERNAME]: '', [PASSWORD]: '', [EMAIL]: '' });
 
     const loginSubmitHandler = () => {
         dispatch(setUserAuth(true));
     };
 
     const handleInputChange = (event) => {
-        setLoginInfo({ ...loginInfo, [event.target.name]: event.target.value });
+        setSignupInfo({ ...signupInfo, [event.target.name]: event.target.value });
     };
 
     return (
-        <LoginBoxForm>
+        <div>
             <FormItem>
                 <Input
                     name={USERNAME}
                     placeholder={intl.formatMessage({ id: 'username' })}
-                    value={loginInfo.username}
+                    value={signupInfo.username}
                     onChange={handleInputChange}
                 />
             </FormItem>
@@ -42,23 +42,38 @@ function LoginForm() {
                 <Input.Password
                     name={PASSWORD}
                     placeholder={intl.formatMessage({ id: 'password' })}
-                    value={loginInfo.password}
+                    value={signupInfo.password}
                     onChange={handleInputChange}
                 />
             </FormItem>
-
+            <FormItem>
+                <Input
+                    name={EMAIL}
+                    placeholder={intl.formatMessage({ id: 'email' })}
+                    value={signupInfo.email}
+                    onChange={handleInputChange}
+                />
+            </FormItem>
+            <FormItem>
+                <Checkbox
+                    onChange={(e) => {
+                        console.log(e);
+                    }}>
+                    <FormattedMessage id="signup.terms" />
+                </Checkbox>
+            </FormItem>
             <span>
                 <Button name="login" type="primary" onClick={loginSubmitHandler}>
-                    <FormattedMessage id="login" />
+                    <FormattedMessage id="enrol" />
                 </Button>
-                <Link to="/signup">
+                <Link to="/">
                     <Button type="link">
-                        <FormattedMessage id="enrol" />
+                        <FormattedMessage id="cancel" />
                     </Button>
                 </Link>
             </span>
-        </LoginBoxForm>
+        </div>
     );
 }
 
-export { LoginForm };
+export { SignupForm };

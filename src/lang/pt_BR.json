@@ -4,6 +4,13 @@
     "enrol": "Cadastrar",
     "login": "Entrar",
 
+    "username": "Usuário",
+    "password": "Senha",
+    "email": "E-mail",
+
     "welcome": "Bem vindo",
-    "welcome.info": "Por favor, utilize o formulário ao lado para entrar no sistema."
+    "welcome.info": "Por favor, utilize o formulário ao lado para entrar no sistema.",
+    "signup": "Cadastre-se",
+    "signup.info": "Se cadastre para ter acesso á ferramenta",
+    "signup.terms": "Ao me cadastrar, concordo com os termos de uso do sistema"
 }
