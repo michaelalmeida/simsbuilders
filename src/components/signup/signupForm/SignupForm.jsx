@@ -18,14 +18,14 @@ function SignupForm() {
 
     const dispatch = useDispatch();
 
-    const [loginInfo, setLoginInfo] = useState({ [USERNAME]: '', [PASSWORD]: '', [EMAIL]: '' });
+    const [signupInfo, setSignupInfo] = useState({ [USERNAME]: '', [PASSWORD]: '', [EMAIL]: '' });
 
     const loginSubmitHandler = () => {
         dispatch(setUserAuth(true));
     };
 
     const handleInputChange = (event) => {
-        setLoginInfo({ ...loginInfo, [event.target.name]: event.target.value });
+        setSignupInfo({ ...signupInfo, [event.target.name]: event.target.value });
     };
 
     return (
@@ -34,7 +34,7 @@ function SignupForm() {
                 <Input
                     name={USERNAME}
                     placeholder={intl.formatMessage({ id: 'username' })}
-                    value={loginInfo.username}
+                    value={signupInfo.username}
                     onChange={handleInputChange}
                 />
             </FormItem>
@@ -42,7 +42,7 @@ function SignupForm() {
                 <Input.Password
                     name={PASSWORD}
                     placeholder={intl.formatMessage({ id: 'password' })}
-                    value={loginInfo.password}
+                    value={signupInfo.password}
                     onChange={handleInputChange}
                 />
             </FormItem>
@@ -50,7 +50,7 @@ function SignupForm() {
                 <Input
                     name={EMAIL}
                     placeholder={intl.formatMessage({ id: 'email' })}
-                    value={loginInfo.email}
+                    value={signupInfo.email}
                     onChange={handleInputChange}
                 />
             </FormItem>
