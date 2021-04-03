@@ -5,20 +5,20 @@ import { useDispatch } from 'react-redux';
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { Input, Button } from 'antd';
+import { Input, Button, Checkbox } from 'antd';
 import { setUserAuth } from '../../../store/user';
 
-import { INPUTNAMES } from '../login.constants';
-import { LoginBoxForm } from './LoginForm.style';
+import { INPUTNAMES } from '../signup.constants';
+
 import { FormItem } from '../../style/forms';
 
-function LoginForm() {
-    const { USERNAME, PASSWORD } = INPUTNAMES;
+function SignupForm() {
+    const { USERNAME, PASSWORD, EMAIL } = INPUTNAMES;
     const intl = useIntl();
 
     const dispatch = useDispatch();
 
-    const [loginInfo, setLoginInfo] = useState({ [USERNAME]: '', [PASSWORD]: '' });
+    const [loginInfo, setLoginInfo] = useState({ [USERNAME]: '', [PASSWORD]: '', [EMAIL]: '' });
 
     const loginSubmitHandler = () => {
         dispatch(setUserAuth(true));
@@ -29,7 +29,7 @@ function LoginForm() {
     };
 
     return (
-        <LoginBoxForm>
+        <div>
             <FormItem>
                 <Input
                     name={USERNAME}
@@ -46,19 +46,34 @@ function LoginForm() {
                     onChange={handleInputChange}
                 />
             </FormItem>
-
+            <FormItem>
+                <Input
+                    name={EMAIL}
+                    placeholder={intl.formatMessage({ id: 'email' })}
+                    value={loginInfo.email}
+                    onChange={handleInputChange}
+                />
+            </FormItem>
+            <FormItem>
+                <Checkbox
+                    onChange={(e) => {
+                        console.log(e);
+                    }}>
+                    <FormattedMessage id="signup.terms" />
+                </Checkbox>
+            </FormItem>
             <span>
                 <Button name="login" type="primary" onClick={loginSubmitHandler}>
-                    <FormattedMessage id="login" />
+                    <FormattedMessage id="enrol" />
                 </Button>
-                <Link to="/signup">
+                <Link to="/">
                     <Button type="link">
-                        <FormattedMessage id="enrol" />
+                        <FormattedMessage id="cancel" />
                     </Button>
                 </Link>
             </span>
-        </LoginBoxForm>
+        </div>
     );
 }
 
-export { LoginForm };
+export { SignupForm };
