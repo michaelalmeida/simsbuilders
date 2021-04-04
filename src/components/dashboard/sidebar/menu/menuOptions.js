@@ -15,7 +15,7 @@ const menuOptions = [
         id: 2,
         label: 'Pedidos',
         icon: <FontAwesomeIcon icon={faShoppingBasket} />,
-        url: '/',
+        url: '/orders',
         permission: [permissions.ADMIN, permissions.moderator, permissions.user],
     },
     {

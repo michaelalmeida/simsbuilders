@@ -5,9 +5,9 @@ const { white, background } = colors;
 
 export const SidebarContainer = styled.div`
     display: flex;
+    width: ${(props) => (props.isClosed ? '70px' : '250px')};
     align-items: flex-stretch;
     flex-direction: column;
-    flex-basis: 250px;
     height: 100%;
     background: ${white};
     box-sizing: border-box;
@@ -16,6 +16,7 @@ export const SidebarContainer = styled.div`
 export const Header = styled.div`
     padding: 20px 0;
     display: flex;
+    min-height: 80px;
     justify-content: center;
     border-bottom: 1px solid ${background};
 `;

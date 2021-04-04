@@ -7,19 +7,17 @@ import { Logo } from '../logo/Logo';
 import { Menu } from './menu/Menu';
 import { SidebarFooter } from './SidebarFooter';
 
-export const Sidebar = ({ company }) => {
+export const Sidebar = ({ isClosed, handleClose, company }) => {
     const { companyName } = company;
 
     return (
-        <SidebarContainer data-testid="sidebar">
-            <Header>
-                <Logo companyName={companyName} />
-            </Header>
+        <SidebarContainer isClosed={isClosed} data-testid="sidebar">
+            <Header>{!isClosed && <Logo companyName={companyName} />}</Header>
             <Content>
-                <Menu />
+                <Menu isClosed={isClosed} />
             </Content>
             <Footer>
-                <SidebarFooter isSidebarOpen />
+                <SidebarFooter isClosed={isClosed} handleClose={handleClose} isSidebarOpen />
             </Footer>
         </SidebarContainer>
     );
@@ -29,4 +27,6 @@ Sidebar.propTypes = {
     company: PropTypes.shape({
         companyName: PropTypes.string,
     }).isRequired,
+    isClosed: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
 };

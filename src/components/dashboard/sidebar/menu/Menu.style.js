@@ -6,7 +6,7 @@ const { background } = colors;
 
 export const List = styled.ul`
     list-style: none;
-    padding: 0 30px;
+    padding: ${(props) => (props.isClosed ? '0 15px' : '0 30px')};
     margin-top: 60px;
 `;
 
