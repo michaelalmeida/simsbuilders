@@ -50,7 +50,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .ant-input-affix-wrapper:hover,
-    .ant-input:hover {
+    .ant-input:hover,
+    .ant-checkbox-checked::after, {
         border-color: ${primary};
     }
 

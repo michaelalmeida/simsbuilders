@@ -7,7 +7,7 @@ const { primary, white } = colors;
 
 export const H1 = styled.h1`
     ${secondaryFont}
-    font-size: 3.6rem;
+    font-size: 4.2rem;
     font-weight: 700;
     color: ${(props) => (props.white ? white : primary)};
 `;

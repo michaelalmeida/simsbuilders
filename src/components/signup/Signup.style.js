@@ -3,7 +3,7 @@ import { colors } from '../style/colors';
 
 import PersonalInformatinSrc from '../../images/personal-information.svg';
 
-const { white, primaryLigther } = colors;
+const { white, secondary } = colors;
 
 export const SignupBox = styled.div`
     display: flex;
@@ -21,12 +21,12 @@ export const SignupBoxInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: ${primaryLigther};
+    background: ${secondary};
 `;
 
 export const SignupFormWrapper = styled.div`
     flex-grow: 1;
-    padding: 30px;
+    padding: 80px;
 `;
 
 export const PersonalInformationIlustration = styled.img.attrs({
