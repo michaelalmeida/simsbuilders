@@ -31,6 +31,6 @@ export const Item = styled.li`
 
 export const Label = styled.span`
     ${mainFont}
-    font-size: 2.0rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 400;
 `;

@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import { colors } from './colors';
 
-const { background, primary, primaryDarker, primaryLigther } = colors;
+const { background, primary, orange, primaryDarker, primaryLigther } = colors;
 
 export const GlobalStyles = createGlobalStyle`
     html {
         font-size: 62.5%;
+        --antd-wave-shadow-color: ${primary}; 
     }
     
     body {
@@ -16,6 +17,14 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
     } 
 
+    a {
+        color: ${primary};
+
+        &:hover {
+            color: ${orange};
+        }
+    
+    }
     .ant-btn-primary {
         border-color: ${primary};
         background: ${primary};

@@ -15,5 +15,15 @@ export const Container = styled.div`
     margin: 0;
     display: flex;
     background: ${background};
+    width: ${(props) => (props.noFullScreen ? '1280px' : '100%')};
     height: 100vh;
+`;
+
+export const MainContent = styled.div`
+    padding: 30px;
+    display: flex;
+    background: ${background};
+    height: 100vh;
+    flex-direction: column;
+    flex-grow: 1;
 `;

@@ -1,13 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Sidebar } from './sidebar/Sidebar';
 
-import { Container } from '../style/Container';
+import { Container, MainContent } from '../style/Container';
 
-export const Dashboard = () => {
+export const Dashboard = ({ children }) => {
     return (
-        <Container data-testid="dashboard">
-            <Sidebar company={{ companyName: 'CG-ADMIN' }} />
+        <Container noFullScreen data-testid="dashboard">
+            <Sidebar company={{ companyName: 'MILO' }} />
+            <MainContent>{children}</MainContent>
         </Container>
     );
+};
+
+Dashboard.propTypes = {
+    children: PropTypes.node.isRequired,
 };

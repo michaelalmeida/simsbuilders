@@ -7,7 +7,7 @@ export const SidebarContainer = styled.div`
     display: flex;
     align-items: flex-stretch;
     flex-direction: column;
-    flex-basis: 300px;
+    flex-basis: 250px;
     height: 100%;
     background: ${white};
     box-sizing: border-box;
@@ -31,7 +31,7 @@ export const Footer = styled.div`
 `;
 
 export const CloseFooter = styled.div`
-    padding: 30px;
+    padding: 15px 30px;
     font-size: 2rem;
     border-left: 1px solid ${background};
     cursor: pointer;
