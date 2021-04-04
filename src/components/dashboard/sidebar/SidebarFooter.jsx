@@ -6,9 +6,9 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 
 import { CloseFooter } from './Sidebar.style';
 
-const SidebarFooter = ({ isSidebarOpen }) => (
-    <CloseFooter>
-        {isSidebarOpen ? (
+const SidebarFooter = ({ isClosed, handleClose }) => (
+    <CloseFooter onClick={() => handleClose(!isClosed)}>
+        {isClosed ? (
             <FontAwesomeIcon icon={faChevronLeft} />
         ) : (
             <FontAwesomeIcon icon={faChevronRight} />
@@ -17,7 +17,8 @@ const SidebarFooter = ({ isSidebarOpen }) => (
 );
 
 SidebarFooter.propTypes = {
-    isSidebarOpen: PropTypes.bool.isRequired,
+    isClosed: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
 };
 
 export { SidebarFooter };
