@@ -5,7 +5,7 @@ import { Sidebar } from './sidebar/Sidebar';
 
 import { Container, MainContent } from '../style/Container';
 
-export const Dashboard = ({ children }) => {
+export const Dashboard = ({ component: Component }) => {
     const [isSidebarClosed, setIsSidebarClosed] = useState(false);
 
     return (
@@ -15,11 +15,13 @@ export const Dashboard = ({ children }) => {
                 handleClose={setIsSidebarClosed}
                 company={{ companyName: 'MILO' }}
             />
-            <MainContent>{children}</MainContent>
+            <MainContent>
+                <Component />
+            </MainContent>
         </Container>
     );
 };
 
 Dashboard.propTypes = {
-    children: PropTypes.node.isRequired,
+    component: PropTypes.func.isRequired,
 };
