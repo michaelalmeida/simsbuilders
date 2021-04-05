@@ -4,6 +4,11 @@
     "enrol": "Cadastrar",
     "login": "Entrar",
 
+    "home": "Inicio",
+    "orders": "Pedidos",
+    "clients": "Clientes",
+    "configuration": "Configuração",
+
     "username": "Usuário",
     "password": "Senha",
     "email": "E-mail",

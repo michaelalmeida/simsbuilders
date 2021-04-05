@@ -1,4 +1,6 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUsers, faShoppingBasket, faTools } from '@fortawesome/free-solid-svg-icons';
 import permissions from '../../../../utils/permissions';
@@ -6,30 +8,30 @@ import permissions from '../../../../utils/permissions';
 const menuOptions = [
     {
         id: 1,
-        label: 'Home',
+        label: <FormattedMessage id="home" />,
         icon: <FontAwesomeIcon icon={faHome} />,
         url: '/',
         permission: [permissions.ADMIN, permissions.moderator, permissions.user],
     },
     {
         id: 2,
-        label: 'Pedidos',
+        label: <FormattedMessage id="orders" />,
         icon: <FontAwesomeIcon icon={faShoppingBasket} />,
         url: '/orders',
         permission: [permissions.ADMIN, permissions.moderator, permissions.user],
     },
     {
         id: 3,
-        label: 'Clientes',
+        label: <FormattedMessage id="clients" />,
         icon: <FontAwesomeIcon icon={faUsers} />,
-        url: '/',
+        url: '/clients',
         permission: [permissions.ADMIN, permissions.moderator, permissions.user],
     },
     {
         id: 4,
-        label: 'Configurações',
+        label: <FormattedMessage id="configuration" />,
         icon: <FontAwesomeIcon icon={faTools} />,
-        url: '/',
+        url: '/configuration',
         permission: [permissions.ADMIN],
     },
 ];
