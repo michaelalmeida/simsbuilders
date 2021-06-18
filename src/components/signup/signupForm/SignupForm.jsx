@@ -5,20 +5,28 @@ import { useDispatch } from 'react-redux';
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { Input, Button, Checkbox } from 'antd';
+import { Input, Button, Checkbox, Select } from 'antd';
 import { setUserAuth } from '../../../store/user';
 
 import { INPUTNAMES } from '../signup.constants';
 
 import { FormItem } from '../../style/forms';
 
+const { Option } = Select;
+
 function SignupForm() {
-    const { USERNAME, PASSWORD, EMAIL } = INPUTNAMES;
+    const { USERNAME, PASSWORD, EMAIL, LANGUAGE, TERMS } = INPUTNAMES;
     const intl = useIntl();
 
     const dispatch = useDispatch();
 
-    const [signupInfo, setSignupInfo] = useState({ [USERNAME]: '', [PASSWORD]: '', [EMAIL]: '' });
+    const [signupInfo, setSignupInfo] = useState({
+        [USERNAME]: '',
+        [PASSWORD]: '',
+        [EMAIL]: '',
+        [LANGUAGE]: '',
+        [TERMS]: false,
+    });
 
     const loginSubmitHandler = () => {
         dispatch(setUserAuth(true));
@@ -28,15 +36,49 @@ function SignupForm() {
         setSignupInfo({ ...signupInfo, [event.target.name]: event.target.value });
     };
 
+    const handleSelectChange = (value) => {
+        setSignupInfo({ ...signupInfo, [LANGUAGE]: value });
+    };
+
+    const handleCheckChange = () => {
+        setSignupInfo({ ...signupInfo, [TERMS]: !signupInfo.terms });
+    };
+
     return (
         <div>
             <FormItem>
                 <Input
                     name={USERNAME}
-                    placeholder={intl.formatMessage({ id: 'username' })}
+                    placeholder={intl.formatMessage({ id: 'gallery' })}
                     value={signupInfo.username}
                     onChange={handleInputChange}
                 />
+                <Input
+                    name={USERNAME}
+                    placeholder={intl.formatMessage({ id: 'username' })}
+                    value={signupInfo.username}
+                    disabled
+                />
+            </FormItem>
+
+            <FormItem>
+                <Input
+                    name={EMAIL}
+                    placeholder={intl.formatMessage({ id: 'email' })}
+                    value={signupInfo.email}
+                    onChange={handleInputChange}
+                />
+            </FormItem>
+
+            <FormItem>
+                <Select
+                    name={LANGUAGE}
+                    style={{ width: '100%' }}
+                    placeholder={intl.formatMessage({ id: 'language' })}
+                    onChange={handleSelectChange}>
+                    <Option value="pt_BR">Português</Option>
+                    <Option value="en_US">English</Option>
+                </Select>
             </FormItem>
             <FormItem>
                 <Input.Password
@@ -47,23 +89,16 @@ function SignupForm() {
                 />
             </FormItem>
             <FormItem>
-                <Input
-                    name={EMAIL}
-                    placeholder={intl.formatMessage({ id: 'email' })}
-                    value={signupInfo.email}
-                    onChange={handleInputChange}
-                />
-            </FormItem>
-            <FormItem>
-                <Checkbox
-                    onChange={(e) => {
-                        console.log(e);
-                    }}>
+                <Checkbox name={TERMS} onChange={handleCheckChange}>
                     <FormattedMessage id="signup.terms" />
                 </Checkbox>
             </FormItem>
             <span>
-                <Button name="login" type="primary" onClick={loginSubmitHandler}>
+                <Button
+                    name="signup"
+                    type="primary"
+                    onClick={loginSubmitHandler}
+                    disabled={!signupInfo.terms}>
                     <FormattedMessage id="enrol" />
                 </Button>
                 <Link to="/">

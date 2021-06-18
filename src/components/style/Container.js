@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from './colors';
+import { MAX_WIDTH } from './sizes';
 
 const { background } = colors;
 
@@ -17,13 +18,28 @@ export const Container = styled.div`
     background: ${background};
     width: ${(props) => (props.noFullScreen ? '1280px' : '100%')};
     height: 100vh;
+    flex-direction: column;
 `;
 
 export const MainContent = styled.div`
-    padding: 30px;
     display: flex;
     background: ${background};
     height: 100vh;
     flex-direction: column;
     flex-grow: 1;
+`;
+
+export const Wrapper = styled.div`
+    margin: auto;
+    display: flex;
+    width: ${MAX_WIDTH};
+`;
+
+export const WrapperGrid = styled.div`
+    margin: auto;
+    display: grid;
+    width: ${MAX_WIDTH};
+    grid-auto-flow: column;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
 `;

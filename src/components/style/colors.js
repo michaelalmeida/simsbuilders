@@ -3,7 +3,7 @@ export const colors = Object.freeze({
     primaryDarker: '#241f40',
     primaryLigther: '#867ac4',
     secondary: '#f2d184',
-    orange: '#F55008',
+    pink: '#f4a3ae',
     white: '#FFFFFF',
     gray: '#BDBEC6',
     grayLight: '#E5E5E5',

@@ -1,7 +1,7 @@
 {
     "send": "Cenviar",
     "cancel": "Cancelar",
-    "enrol": "Cadastrar",
+    "enrol": "Criar conta",
     "login": "Entrar",
 
     "home": "Inicio",
@@ -9,13 +9,37 @@
     "clients": "Clientes",
     "configuration": "Configuração",
 
+    "gallery": "Gallery ID",
     "username": "Usuário",
     "password": "Senha",
     "email": "E-mail",
+    "language": "Idioma",
+    "country": "País",
 
     "welcome": "Bem vindo",
     "welcome.info": "Por favor, utilize o formulário ao lado para entrar no sistema.",
     "signup": "Cadastre-se",
     "signup.info": "Se cadastre para ter acesso á ferramenta",
-    "signup.terms": "Ao me cadastrar, concordo com os termos de uso do sistema"
+    "signup.terms": "Ao me cadastrar, concordo com os termos de uso do sistema",
+
+    "menu.contracts": "Contratos disponíveis",
+    "menu.ranking": "Ranking",
+
+    "category.bathroom": "Banheiro",
+    "category.kidsroom": "Quarto infantil",
+    "category.outdoor": "Área externa",
+    "category.study": "Escritório",
+    "category.diningroom": "Sala de jantar",
+    "category.livingroom": "Sala de estar",
+    "category.kitchen": "Cozinha",
+    "category.bedroom": "Quarto",
+
+    "highlights.title": "Newcrest está contratando!",
+    "highlights.description": " Seja o Designer de interiores mais famoso de toda região, cadastre-se no site e tenha a chance de renovar a casa de diversas pessoas, ou apenas seja um cliente da Simsbuilders e realize sua reforma dos sonhos",
+
+    "warning.lastcontracts": "Estamos tentando carregar os últimos contratos...",
+
+    "payment": "Pagamento",
+    "size": "Size",
+    "contractor": "Contratante"
 }
