@@ -7,6 +7,8 @@ import { getLastContracts } from '../../store/contract';
 import { Highlights } from './highlights/Highlights';
 import { LastContracts } from './lastcontracts/LastContracts';
 
+import { Wrapper } from '../style/Container';
+
 const Home = () => {
     const isAuth = useSelector(({ user }) => user.isAuth);
     const lastContracts = useSelector(({ contract }) => contract.lastContracts);
@@ -22,7 +24,9 @@ const Home = () => {
             {lastContracts.length !== 0 ? (
                 <LastContracts lastContractsList={lastContracts} />
             ) : (
-                <Skeleton active />
+                <Wrapper>
+                    <Skeleton active />
+                </Wrapper>
             )}
         </>
     );

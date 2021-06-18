@@ -5,12 +5,14 @@ import { useDispatch } from 'react-redux';
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { Input, Button } from 'antd';
+import { Input, Button, notification } from 'antd';
 import { setUserAuth } from '../../../store/user';
 
 import { INPUTNAMES } from '../login.constants';
 import { LoginBoxForm } from './LoginForm.style';
 import { FormItem } from '../../style/forms';
+
+import { login } from '../../../service';
 
 function LoginForm() {
     const { USERNAME, PASSWORD } = INPUTNAMES;
@@ -21,7 +23,18 @@ function LoginForm() {
     const [loginInfo, setLoginInfo] = useState({ [USERNAME]: '', [PASSWORD]: '' });
 
     const loginSubmitHandler = () => {
-        dispatch(setUserAuth(true));
+        login({ [USERNAME]: loginInfo[USERNAME], [PASSWORD]: loginInfo[PASSWORD] })
+            .then((response) => {
+                console.log(response);
+                dispatch(setUserAuth(true));
+            })
+            .catch(() =>
+                notification.error({
+                    message: intl.formatMessage({ id: 'login.ops' }),
+                    description: intl.formatMessage({ id: 'login.error' }),
+                    placement: 'topRight ',
+                })
+            );
     };
 
     const handleInputChange = (event) => {
@@ -34,7 +47,7 @@ function LoginForm() {
                 <Input
                     name={USERNAME}
                     placeholder={intl.formatMessage({ id: 'username' })}
-                    value={loginInfo.username}
+                    value={loginInfo[USERNAME]}
                     onChange={handleInputChange}
                 />
             </FormItem>
@@ -42,7 +55,7 @@ function LoginForm() {
                 <Input.Password
                     name={PASSWORD}
                     placeholder={intl.formatMessage({ id: 'password' })}
-                    value={loginInfo.password}
+                    value={loginInfo[PASSWORD]}
                     onChange={handleInputChange}
                 />
             </FormItem>
