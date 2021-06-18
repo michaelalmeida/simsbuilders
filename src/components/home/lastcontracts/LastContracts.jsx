@@ -28,7 +28,7 @@ const LastContracts = ({ lastContractsList }) => {
                                     <FormattedMessage id="size" />
                                 </div>
                                 <div>
-                                    <FormattedMessage id="contrator" />
+                                    <FormattedMessage id="contractor" />
                                 </div>
                             </S.GeneralInfo>
                             <S.GeneralInfo style={{ marginBottom: '30px' }}>
@@ -45,7 +45,10 @@ const LastContracts = ({ lastContractsList }) => {
                                         id={`category.${contract.description.type}`}
                                     />
                                 </S.RoomType>
-                                <S.CardButton type="button">Aceitar contrato</S.CardButton>
+                                <S.CardButton type="button">
+                                    {' '}
+                                    <FormattedMessage id="more-information" />
+                                </S.CardButton>
                             </S.Info>
                         </S.Card>
                     ))}
