@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 
 import { Login } from '../components/login/Login';
 import { Dashboard } from '../components/dashboard/Dashboard';
-import { Home } from '../components/dashboard/home';
+import { Layout } from '../components/layout';
+import { Home } from '../components/home/Home';
 import { Signup } from '../components/signup/Signup';
 
 const Routes = () => (
@@ -13,9 +14,7 @@ const Routes = () => (
         <Switch>
             <Route exact path="/login/" component={Login} />
             <Route exact path="/signup/" component={Signup} />
-            <PrivateRoute path="/">
-                <Dashboard component={() => <Home />} />
-            </PrivateRoute>
+            <Layout component={() => <Home />} />
             <PrivateRoute path="/orders">
                 <Dashboard component={() => <Home />} />
             </PrivateRoute>

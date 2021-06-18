@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { colors } from './colors';
 
-const { background, primary, orange, primaryDarker, primaryLigther } = colors;
+const { background, primary, pink, primaryDarker, primaryLigther } = colors;
 
 export const GlobalStyles = createGlobalStyle`
     html {
@@ -21,11 +21,13 @@ export const GlobalStyles = createGlobalStyle`
         color: ${primary};
 
         &:hover {
-            color: ${orange};
+            color: ${pink};
         }
     
     }
+
     .ant-btn-primary {
+        border-radius: 5px;
         border-color: ${primary};
         background: ${primary};
 
@@ -37,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
 
     .ant-btn-link {
         color: ${primary};
-
+        border-radius: 5px;
         &:hover {
             color: ${primaryDarker};
         }

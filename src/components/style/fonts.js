@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
 export const mainFont = css`
-    font-family: 'Heebo', sans-serif;
+    font-family: 'Poppins', sans-serif;
 `;
 
 export const secondaryFont = css`
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
 `;

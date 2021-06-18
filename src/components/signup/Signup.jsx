@@ -12,7 +12,7 @@ import {
     SignupFormWrapper,
 } from './Signup.style';
 
-import { H1, Paragraph } from '../style/Typography';
+import { H1 } from '../style/Typography';
 
 function Signup() {
     return (
@@ -25,9 +25,7 @@ function Signup() {
                     <H1>
                         <FormattedMessage id="signup" />
                     </H1>
-                    <Paragraph>
-                        <FormattedMessage id="signup.info" />
-                    </Paragraph>
+
                     <SignupForm />
                 </SignupFormWrapper>
             </SignupBox>

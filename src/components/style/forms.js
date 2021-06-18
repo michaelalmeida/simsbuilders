@@ -4,7 +4,12 @@ import { colors } from './colors';
 const { secondary } = colors;
 
 export const FormItem = styled.div`
-    margin: 0 0 20px;
+    margin: 0 0 30px;
+    display: flex;
+
+    input:nth-child(2n) {
+        margin-left: 30px;
+    }
 `;
 
 export const FormError = styled.div`

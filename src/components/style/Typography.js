@@ -24,7 +24,7 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
     ${secondaryFont}
     font-size: 2.4rem;
-    font-weight: 300;
+    font-weight: normal;
     color: ${(props) => (props.white ? white : primary)};
 `;
 
@@ -47,14 +47,15 @@ export const Paragraph = styled.p`
 `;
 
 export const LogoText = styled.h5`
-    ${mainFont}
+    float: right;
+    ${secondaryFont}
     max-width: 260px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
     padding: 0;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-align: ${(props) => (props.right ? 'right' : 'left')};
     color: ${(props) => (props.white ? white : primary)};
