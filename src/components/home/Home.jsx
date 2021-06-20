@@ -11,6 +11,7 @@ import { Wrapper } from '../style/Container';
 
 const Home = () => {
     const isAuth = useSelector(({ user }) => user.isAuth);
+    const userInfo = useSelector(({ user }) => user.userInfo);
     const lastContracts = useSelector(({ contract }) => contract.lastContracts);
     const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const Home = () => {
 
     return (
         <>
-            {!isAuth && <Highlights />}
+            <Highlights isLogged={isAuth} userInfo={userInfo} />
             {lastContracts.length !== 0 ? (
                 <LastContracts lastContractsList={lastContracts} />
             ) : (

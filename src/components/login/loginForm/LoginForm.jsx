@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { Input, Button, notification } from 'antd';
-import { setUserAuth } from '../../../store/user';
+import { Input, Button, Alert } from 'antd';
 
 import { INPUTNAMES } from '../login.constants';
 import { LoginBoxForm } from './LoginForm.style';
 import { FormItem } from '../../style/forms';
 
-import { login } from '../../../service';
+import { Loading } from '../../loading/Loading';
+
+import { setLogin } from '../../../store/user';
 
 function LoginForm() {
     const { USERNAME, PASSWORD } = INPUTNAMES;
     const intl = useIntl();
+    const isLogging = useSelector(({ user }) => user.isLogging);
 
     const dispatch = useDispatch();
 
     const [loginInfo, setLoginInfo] = useState({ [USERNAME]: '', [PASSWORD]: '' });
+    const [isFieldsWithError, setIsFieldsWithError] = useState(false);
 
     const loginSubmitHandler = () => {
-        login({ [USERNAME]: loginInfo[USERNAME], [PASSWORD]: loginInfo[PASSWORD] })
-            .then((response) => {
-                console.log(response);
-                dispatch(setUserAuth(true));
-            })
-            .catch(() =>
-                notification.error({
-                    message: intl.formatMessage({ id: 'login.ops' }),
-                    description: intl.formatMessage({ id: 'login.error' }),
-                    placement: 'topRight ',
-                })
+        if (loginInfo[USERNAME].length === 0 || loginInfo[PASSWORD].length === 0) {
+            setIsFieldsWithError(true);
+        } else {
+            setIsFieldsWithError(false);
+            dispatch(
+                setLogin({ [USERNAME]: loginInfo[USERNAME], [PASSWORD]: loginInfo[PASSWORD] })
             );
+        }
     };
 
     const handleInputChange = (event) => {
@@ -43,6 +42,7 @@ function LoginForm() {
 
     return (
         <LoginBoxForm>
+            <Loading loading={isLogging} />
             <FormItem>
                 <Input
                     name={USERNAME}
@@ -59,7 +59,6 @@ function LoginForm() {
                     onChange={handleInputChange}
                 />
             </FormItem>
-
             <span>
                 <Button name="login" type="primary" onClick={loginSubmitHandler}>
                     <FormattedMessage id="login" />
@@ -70,6 +69,14 @@ function LoginForm() {
                     </Button>
                 </Link>
             </span>
+            {isFieldsWithError && (
+                <Alert
+                    style={{ marginTop: '30px' }}
+                    message={<FormattedMessage id="login.empty-fieds" />}
+                    type="error"
+                    showIcon
+                />
+            )}
         </LoginBoxForm>
     );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
@@ -9,14 +8,11 @@ import { WrapperGrid } from '../../style/Container';
 import { CategoryIcon } from '../../category/CategoryIcon';
 
 const LastContracts = ({ lastContractsList }) => {
-    const isAuth = useSelector(({ user }) => user.isAuth);
     return (
         <>
-            {isAuth && 'loggerd'}
             <S.Content>
                 <WrapperGrid>
                     {lastContractsList.map((contract) => (
-                        // eslint-disable-next-line no-underscore-dangle
                         <S.Card key={contract._id}>
                             <S.Title>{contract.name}</S.Title>
                             <S.Description>{contract.description.summary}</S.Description>
