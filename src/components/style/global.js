@@ -36,6 +36,10 @@ export const GlobalStyles = createGlobalStyle`
             background: ${primaryDarker};
         }
     }
+    
+    .ant-spin-dot-item {
+        background-color: ${pink};
+    }
 
     .ant-btn-link {
         color: ${primary};

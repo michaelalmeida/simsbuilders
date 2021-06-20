@@ -16,6 +16,7 @@ module.exports = {
                 extensions: ['.js', '.jsx'],
             },
         ],
+        'no-underscore-dangle': 'off',
         'import/no-extraneous-dependencies': [1, { devDependencies: true }],
         'prettier/prettier': [
             'error',

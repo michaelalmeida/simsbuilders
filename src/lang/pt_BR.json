@@ -6,6 +6,7 @@
 
     "login.ops": "ops...",
     "login.error": "Erro ao tentar entra no sistema, usuário ou senha inváldios. Tente novamente!",
+    "login.empty-fieds": "Por favor, preencha ambos os campos para continuar",
 
     "home": "Inicio",
     "orders": "Pedidos",
@@ -27,6 +28,10 @@
 
     "menu.contracts": "Contratos disponíveis",
     "menu.ranking": "Ranking",
+    "menu.profile": "Meu perfil",
+    "menu.my-contracts": "Meus contratos",
+    "menu.create-contract": "Criar contrato",
+    "menu.exit": "Sair",
 
     "category.bathroom": "Banheiro",
     "category.kidsroom": "Quarto infantil",
@@ -39,11 +44,13 @@
 
     "highlights.title": "Newcrest está contratando!",
     "highlights.description": " Seja o Designer de interiores mais famoso de toda região, cadastre-se no site e tenha a chance de renovar a casa de diversas pessoas, ou apenas seja um cliente da Simsbuilders e realize sua reforma dos sonhos",
-
+    "highlights.description.logged": "Agora que você faz parte da Simsbuilders você já pode começar a criar seus contratos, para que outros de nossos excelentes funcionários renove sua casa, ou comece a aceitar contratos para aumentar sua fama!",
     "warning.lastcontracts": "Estamos tentando carregar os últimos contratos...",
 
     "payment": "Pagamento",
     "size": "Size",
     "contractor": "Contratante",
-    "more-information": "Mais informações"
+    "more-information": "Mais informações",
+
+    "contract.create": "Criar contrato"
 }
