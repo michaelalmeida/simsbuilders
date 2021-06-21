@@ -11,7 +11,7 @@ import Routes from './routes';
 
 import 'antd/dist/antd.css';
 
-import { userCookie } from './utils/cookieHandler';
+import userCookie from './utils/cookieHandler';
 import { setUserAuth, setUserInfo } from './store/user';
 
 function App() {

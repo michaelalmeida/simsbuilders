@@ -14,4 +14,4 @@ export const getUserContracts = ({ id }) =>
         id,
     });
 
-export const logout = () => axios.get(`${process.env.REACT_APP_BASE_API}logout`);
+export const logoutService = () => axios.get(`${process.env.REACT_APP_BASE_API}logout`);

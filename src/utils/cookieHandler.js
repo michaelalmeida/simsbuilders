@@ -2,7 +2,7 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-export const userCookie = {
+const userCookie = {
     USERNAMEKEY: 'username',
     IDKEY: 'userid',
     NAMEKEY: 'name',
@@ -24,4 +24,11 @@ export const userCookie = {
     get name() {
         return cookies.get(this.NAMEKEY);
     },
+    cleanCookies() {
+        cookies.remove(this.USERNAMEKEY);
+        cookies.remove(this.IDKEY);
+        cookies.remove(this.NAMEKEY);
+    },
 };
+
+export default userCookie;

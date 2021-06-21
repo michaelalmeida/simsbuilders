@@ -1,6 +1,6 @@
 import { notification } from 'antd';
-import { loginService } from '../service';
-import { userCookie } from '../utils/cookieHandler';
+import { loginService, logoutService } from '../service';
+import userCookie from '../utils/cookieHandler';
 
 export const IS_AUTH = 'IS_AUTH';
 export const SET_USERINFO = 'SET_USERINFO';
@@ -77,11 +77,9 @@ export const setLogin = ({ username, password }) => {
                 dispatch(setUserAuth(true));
                 dispatch(
                     setUserInfo({
-                        userInfo: {
-                            name: res.data.name,
-                            username: res.data.username,
-                            id: res.data._id,
-                        },
+                        name: res.data.name,
+                        username: res.data.username,
+                        id: res.data._id,
                     })
                 );
             })
@@ -94,6 +92,35 @@ export const setLogin = ({ username, password }) => {
             )
             .finally(() => {
                 dispatch(setIsLogging(false));
+            });
+    };
+};
+
+export const setLogout = () => {
+    return (dispatch) => {
+        logoutService()
+            .then(() => {
+                userCookie.cleanCookies();
+                dispatch(setUserAuth(false));
+                dispatch(
+                    setUserInfo({
+                        userInfo: {
+                            name: '',
+                            username: '',
+                            id: '',
+                        },
+                    })
+                );
+            })
+            .catch(() =>
+                notification.error({
+                    message: 'ops',
+                    description: 'Try again later!',
+                    placement: 'topRight ',
+                })
+            )
+            .finally(() => {
+                document.location.href = '/';
             });
     };
 };

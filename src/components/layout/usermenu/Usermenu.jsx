@@ -10,7 +10,7 @@ const menuOptions = [
     { name: 'profile', restricted: true, path: '/profile' },
     { name: 'my-contracts', restricted: true, path: '/my-contracts' },
     { name: 'create-contract', restricted: true, path: '/create-contract' },
-    { name: 'exit', restricted: true, path: '/sign-out' },
+    { name: 'exit', restricted: true, path: '/signout' },
 ];
 
 const UserMenuContent = (

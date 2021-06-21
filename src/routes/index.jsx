@@ -8,12 +8,14 @@ import { Dashboard } from '../components/dashboard/Dashboard';
 import { Layout } from '../components/layout';
 import { Home } from '../components/home/Home';
 import { Signup } from '../components/signup/Signup';
+import { Signout } from '../components/signout/Signout';
 
 const Routes = () => (
     <Router>
         <Switch>
             <Route exact path="/login/" component={Login} />
             <Route exact path="/signup/" component={Signup} />
+            <Route exact path="/signout/" component={Signout} />
             <Layout component={() => <Home />} />
             <PrivateRoute path="/orders">
                 <Dashboard component={() => <Home />} />
