@@ -32,7 +32,7 @@ const Highlights = ({ isLogged, userInfo }) => {
                         />
                     </Paragraph>
                     {isLogged ? (
-                        <Link to="/new-contract">
+                        <Link to="/create-contract">
                             <Button type="link">
                                 <FormattedMessage id="contract.create" />
                             </Button>

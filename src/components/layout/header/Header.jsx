@@ -19,7 +19,9 @@ const Header = () => {
         <HeaderBar>
             <GridWrapper>
                 <Logo>
-                    <LogoText>simsbuilders</LogoText>
+                    <Link to="/">
+                        <LogoText>simsbuilders</LogoText>
+                    </Link>
                 </Logo>
                 <Menu />
                 {isAuth ? (

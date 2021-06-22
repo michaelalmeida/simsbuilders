@@ -19,6 +19,8 @@
     "email": "E-mail",
     "language": "Idioma",
     "country": "País",
+    "copy": "Copiar",
+    "copied": "Copiado!",
 
     "welcome": "Bem vindo",
     "welcome.info": "Por favor, utilize o formulário ao lado para entrar no sistema.",
@@ -52,5 +54,12 @@
     "contractor": "Contratante",
     "more-information": "Mais informações",
 
-    "contract.create": "Criar contrato"
+    "contract.create": "Criar contrato",
+    "contract.name": "Nome do contrato",
+    "contract.size": "Tamanho",
+    "contract.hashtag": "Hashtag para compartilhar",
+    "contract.budget": "Orçamento máximo",
+    "contract.payment": "Pagamento",
+    "contract.summary": "Descrição",
+    "contract.type": "Tipo"
 }

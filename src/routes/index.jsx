@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Login } from '../components/login/Login';
-import { Dashboard } from '../components/dashboard/Dashboard';
 import { Layout } from '../components/layout';
 import { Home } from '../components/home/Home';
 import { Signup } from '../components/signup/Signup';
 import { Signout } from '../components/signout/Signout';
+import { CreateContract } from '../components/contract/CreateContract';
 
 const Routes = () => (
     <Router>
@@ -16,18 +16,11 @@ const Routes = () => (
             <Route exact path="/login/" component={Login} />
             <Route exact path="/signup/" component={Signup} />
             <Route exact path="/signout/" component={Signout} />
-            <Layout component={() => <Home />} />
-            <PrivateRoute path="/orders">
-                <Dashboard component={() => <Home />} />
-            </PrivateRoute>
-            <PrivateRoute path="/clients">
-                <Dashboard component={() => <Home />} />
-            </PrivateRoute>
-            <PrivateRoute path="/orders">
-                <Dashboard component={() => <Home />} />
-            </PrivateRoute>
-            <PrivateRoute path="/configuration">
-                <Dashboard component={() => <Home />} />
+            <Route exact path="/">
+                <Layout component={() => <Home />} />
+            </Route>
+            <PrivateRoute path="/create-contract">
+                <Layout component={() => <CreateContract />} />
             </PrivateRoute>
         </Switch>
     </Router>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from './colors';
-import { MAX_WIDTH } from './sizes';
+import { MAX_WIDTH, FULL } from './sizes';
 
 const { background } = colors;
 
@@ -30,9 +30,14 @@ export const MainContent = styled.div`
 `;
 
 export const Wrapper = styled.div`
+    flex-grow: 1;
     margin: auto;
     display: flex;
     width: ${MAX_WIDTH};
+
+    @media (max-width: 700px) {
+        width: ${FULL};
+    }
 `;
 
 export const WrapperGrid = styled.div`
@@ -42,4 +47,8 @@ export const WrapperGrid = styled.div`
     grid-auto-flow: column;
     gap: 30px;
     grid-template-columns: 1fr 1fr 1fr;
+
+    @media (max-width: 700px) {
+        width: ${FULL};
+    }
 `;
