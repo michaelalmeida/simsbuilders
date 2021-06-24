@@ -7,7 +7,8 @@ export const FormItem = styled.div`
     margin: 0 0 30px;
     display: flex;
 
-    input:nth-child(2n) {
+    input:nth-child(2n),
+    .ant-input-password:nth-child(2n) {
         margin-left: 30px;
     }
 `;

@@ -9,6 +9,9 @@ export const loginService = ({ password, username }) =>
         username,
     });
 
+export const singupService = (payload) =>
+    axios.post(`${process.env.REACT_APP_BASE_API}signup`, payload);
+
 export const getUserContracts = ({ id }) =>
     axios.get(`${process.env.REACT_APP_BASE_API}contracts/byuser`, {
         id,

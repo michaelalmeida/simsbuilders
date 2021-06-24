@@ -1,14 +1,16 @@
 import { notification } from 'antd';
-import { loginService, logoutService } from '../service';
+import { loginService, logoutService, singupService } from '../service';
 import userCookie from '../utils/cookieHandler';
 
 export const IS_AUTH = 'IS_AUTH';
 export const SET_USERINFO = 'SET_USERINFO';
 export const IS_LOGGING = 'IS_LOGGING';
+export const IS_SINGNING = 'IS_SINGNING';
 
 export const initialState = {
     isAuth: false,
     isLogging: false,
+    isSingning: false,
     theme: 'default',
     userInfo: {
         name: '',
@@ -18,7 +20,7 @@ export const initialState = {
 };
 
 export const userReducer = (state = initialState, action) => {
-    const { type, isAuth, userInfo, isLogging } = action;
+    const { type, isAuth, userInfo, isLogging, isSingning } = action;
 
     switch (type) {
         case IS_AUTH:
@@ -30,6 +32,11 @@ export const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLogging,
+            };
+        case IS_SINGNING:
+            return {
+                ...state,
+                isSingning,
             };
         case SET_USERINFO:
             return {
@@ -55,6 +62,13 @@ export const setIsLogging = (isLogging) => {
     return {
         type: IS_LOGGING,
         isLogging,
+    };
+};
+
+export const setIsSinging = (isSingning) => {
+    return {
+        type: IS_SINGNING,
+        isSingning,
     };
 };
 
@@ -121,6 +135,43 @@ export const setLogout = () => {
             )
             .finally(() => {
                 document.location.href = '/';
+            });
+    };
+};
+
+export const setSingup = (payload) => {
+    return (dispatch) => {
+        dispatch(setIsSinging(true));
+
+        singupService(payload)
+            .then((res) => {
+                userCookie.userName = res.data.username;
+                userCookie.userId = res.data._id;
+                userCookie.name = res.data.name;
+                dispatch(setUserAuth(true));
+                dispatch(
+                    setUserInfo({
+                        name: res.data.name,
+                        username: res.data.username,
+                        id: res.data._id,
+                    })
+                );
+                notification.success({
+                    message: '😍',
+                    description: 'Welcome!',
+                    placement: 'topRight ',
+                });
+                document.location.href = '/';
+            })
+            .catch(() =>
+                notification.error({
+                    message: 'Ops!!',
+                    description: 'Username already exists!',
+                    placement: 'topRight ',
+                })
+            )
+            .finally(() => {
+                dispatch(setIsSinging(false));
             });
     };
 };

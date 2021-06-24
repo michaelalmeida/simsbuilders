@@ -9,6 +9,7 @@ import { Home } from '../components/home/Home';
 import { Signup } from '../components/signup/Signup';
 import { Signout } from '../components/signout/Signout';
 import { CreateContract } from '../components/contract/CreateContract';
+import Welcome from '../components/welcome';
 
 const Routes = () => (
     <Router>
@@ -16,6 +17,7 @@ const Routes = () => (
             <Route exact path="/login/" component={Login} />
             <Route exact path="/signup/" component={Signup} />
             <Route exact path="/signout/" component={Signout} />
+            <Route exact path="/Welcome/" component={Welcome} />
             <Route exact path="/">
                 <Layout component={() => <Home />} />
             </Route>
