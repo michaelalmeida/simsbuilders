@@ -1,11 +1,12 @@
 import { notification } from 'antd';
-import { loginService, logoutService, singupService } from '../service';
+import { loginService, logoutService, singupService, getUserScore } from '../service';
 import userCookie from '../utils/cookieHandler';
 
 export const IS_AUTH = 'IS_AUTH';
 export const SET_USERINFO = 'SET_USERINFO';
 export const IS_LOGGING = 'IS_LOGGING';
 export const IS_SINGNING = 'IS_SINGNING';
+export const SET_USERSCORE = 'SET_USERSCORE';
 
 export const initialState = {
     isAuth: false,
@@ -20,7 +21,7 @@ export const initialState = {
 };
 
 export const userReducer = (state = initialState, action) => {
-    const { type, isAuth, userInfo, isLogging, isSingning } = action;
+    const { type, isAuth, userInfo, isLogging, isSingning, userScore } = action;
 
     switch (type) {
         case IS_AUTH:
@@ -43,6 +44,14 @@ export const userReducer = (state = initialState, action) => {
                 ...state,
                 userInfo: {
                     ...userInfo,
+                },
+            };
+        case SET_USERSCORE:
+            return {
+                ...state,
+                userInfo: {
+                    ...state.userInfo,
+                    userScore,
                 },
             };
 
@@ -76,6 +85,13 @@ export const setUserInfo = (userInfo) => {
     return {
         type: SET_USERINFO,
         userInfo,
+    };
+};
+
+export const setUserUscore = (userScore) => {
+    return {
+        type: SET_USERSCORE,
+        userScore,
     };
 };
 
@@ -173,5 +189,24 @@ export const setSingup = (payload) => {
             .finally(() => {
                 dispatch(setIsSinging(false));
             });
+    };
+};
+
+export const setScoreMiddleware = (id) => {
+    return (dispatch) => {
+        dispatch(setIsSinging(true));
+
+        getUserScore({ id })
+            .then((res) => {
+                console.log(res, id);
+                dispatch(setUserUscore({ score: res.score }));
+            })
+            .catch(() =>
+                notification.error({
+                    message: 'Ops!!',
+                    description: 'Impossible to get score!',
+                    placement: 'topRight ',
+                })
+            );
     };
 };

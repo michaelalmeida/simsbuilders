@@ -57,6 +57,9 @@ function LoginForm() {
                     placeholder={intl.formatMessage({ id: 'password' })}
                     value={loginInfo[PASSWORD]}
                     onChange={handleInputChange}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') loginSubmitHandler();
+                    }}
                 />
             </FormItem>
             <span>

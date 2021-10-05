@@ -34,6 +34,7 @@ export const Wrapper = styled.div`
     margin: auto;
     display: flex;
     width: ${MAX_WIDTH};
+    flex-direction: ${(props) => (props.direction ? props.direction : 'row')};
 
     @media (max-width: 700px) {
         width: ${FULL};

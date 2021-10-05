@@ -4,7 +4,7 @@ import { colors } from '../style/colors';
 import { FULL } from '../style/sizes';
 import UsingNotebookSrc from '../../images/using-notebook.svg';
 
-const { pink } = colors;
+const { pink, white } = colors;
 
 export const Content = styled.div`
     padding: 60px 0;
@@ -19,6 +19,17 @@ export const Content = styled.div`
     }
 `;
 
+export const Sidebar = styled.div`
+    margin-top: 60px;
+    width: 350px;
+`;
+
+export const FormWrapper = styled.div`
+    padding-bottom: 60px;
+    width: ${FULL};
+    background: ${white};
+`;
+
 export const Form = styled.div`
     margin-top: 60px;
     width: ${FULL};
@@ -29,10 +40,10 @@ export const FormItem = styled.div`
     display: flex;
     justify-content: space-between;
 
-    div {
+    div:not(.ant-select-selection-overflow, .ant-select-selection-overflow-item, .ant-select-selector) {
         width: 30%;
 
-        span {
+        & > span:not(.ant-tag) {
             span:first-child {
                 width: 100%;
             }
