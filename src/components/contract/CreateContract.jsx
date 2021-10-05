@@ -144,6 +144,8 @@ const CreateContract = () => {
                                     {...register('budget')}
                                     defaultValue={8000}
                                     placeholder={intl.formatMessage({ id: 'contract.budget' })}
+                                    type="number"
+                                    min={2000}
                                 />
                             </div>
                             <div>

@@ -18,8 +18,9 @@ export const getUserContracts = ({ id }) =>
     });
 
 export const getUserScore = ({ id }) =>
-    axios.get(`${process.env.REACT_APP_BASE_API}user/score`, {
-        id,
-    });
+    axios.get(`${process.env.REACT_APP_BASE_API}user/score/${id}`);
 
 export const logoutService = () => axios.get(`${process.env.REACT_APP_BASE_API}logout`);
+
+export const createContractService = (payload) =>
+    axios.post(`${process.env.REACT_APP_BASE_API}contract`, payload);
