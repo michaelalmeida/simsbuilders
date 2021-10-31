@@ -3,9 +3,9 @@
 </h1>
 
 <p align="center">
-<img src="https://i.ibb.co/RDdnJ6x/milo-first.png" alt="iFood test application">
-<img src="https://i.ibb.co/qYYkdTG/milo-signup.png" alt="iFood test application">
-
+<img src="https://i.ibb.co/RDdnJ6x/milo-first.png" alt="iFood test application" width="200px">
+<img src="https://i.ibb.co/WDVbbgc/simsbuilder-cadastro.png" alt="iFood test application" width="200px">
+<img src="https://i.ibb.co/3kwmB1f/sims-builders-home.png" alt="iFood test application"  width="200px">
 </p>
 
 ### Configure your local env variables
@@ -26,3 +26,14 @@
 | styled-component      | CSS as Components                                     |
 | React Testing Library | JavaScript Testing utility for React                  |
 | Jest                  | JavaScript Testing Framework                          |
+
+## Backend
+
+The app is running at https://simsbuilders.herokuapp.com/
+
+| Tool        | Description                                                         |
+| ----------- | ------------------------------------------------------------------- |
+| Node.js     | JavaScript runtime built on Chrome's V8 JavaScript engine           |
+| Express     | Node.js web application framework                                   |
+| MongoDB     | Document-oriented database which stores data in JSON-like documents |
+| Passport.js | Authentication middleware for Node.js                               |

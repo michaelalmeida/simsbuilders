@@ -6,7 +6,7 @@ import { LoaddingScreen } from './Loading.style';
 
 const Loading = ({ loading }) =>
     loading && (
-        <LoaddingScreen>
+        <LoaddingScreen data-testid="loading-screen">
             <Spin size="large" />
         </LoaddingScreen>
     );
